@@ -29,7 +29,7 @@ function Details() {
             <h3 className="card-title">Login: {user.login}</h3>
           </div>
           <div className="col-12 mt-3">
-            <a href={user.html_url} className="btn btn-outline-primary">
+            <a href={user.html_url} className="btn btn-outline-warning">
               GitHub Profile
             </a>
           </div>

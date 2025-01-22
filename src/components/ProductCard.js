@@ -16,7 +16,7 @@ function ProductCard({ user }) {
           <div className="card-body">
             <h2 className="card-title">{user.id}</h2>
             <h3 className="card-title">{user.login}</h3>
-            <Link to={`/details/${user.id}`} className="btn btn-primary me-2">
+            <Link to={`/details/${user.id}`} className="btn btn-warning me-2">
               Profile
             </Link>
           </div>
