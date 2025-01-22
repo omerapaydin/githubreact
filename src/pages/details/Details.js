@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 function Details() {
   const { id } = useParams();
-  const [user, setUser] = useState(null); // Doğru kullanım
   const url = "https://api.github.com/users/" + id;
 
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setUser(data))
-      .catch((error) => console.error("Error fetching user:", error)); // Hata durumları için
-  }, [url]);
+  const { data: user } = useFetch(url);
 
   return (
     <div className="row mt-3">

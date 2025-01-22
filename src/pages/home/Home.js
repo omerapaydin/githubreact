@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from "react";
 import ProductCard from "../../components/ProductCard";
+import useFetch from "../../hooks/useFetch";
 
 function Home() {
-  const [users, setUsers] = useState(null);
-
-  useEffect(() => {
-    fetch("https://api.github.com/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, []);
+  const { data: users } = useFetch("https://api.github.com/users");
 
   return (
-    <div className="roww mt-3">
+    <div className="row mt-3">
       {users && users.map((user) => <ProductCard key={user.id} user={user} />)}
     </div>
   );
