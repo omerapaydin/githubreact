@@ -5,10 +5,11 @@ function Details() {
   const { id } = useParams();
   const url = "https://api.github.com/users/" + id;
 
-  const { data: user } = useFetch(url);
+  const { data: user, isLoading } = useFetch(url);
 
   return (
     <div className="row mt-3">
+      {isLoading && <div className="alert alert-warning">Yükleniyor...</div>}
       {user ? (
         <>
           <div className="col-4">
