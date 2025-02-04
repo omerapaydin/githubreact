@@ -1,9 +1,9 @@
-import React, { useContext } from "react"; // useContext eklendi
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../contexts/ThemeContext"; // ThemeContext import edildi
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function ProductCard({ user }) {
-  const { btnColor } = useContext(ThemeContext); // useContext kullanımı düzeltildi
+  const { color } = useContext(ThemeContext);
 
   return (
     <div className="card mb-3" key={user.id}>
@@ -21,7 +21,7 @@ function ProductCard({ user }) {
             <h3 className="card-title">{user.login}</h3>
             <Link
               to={`/details/${user.id}`}
-              className={`btn btn-${btnColor} me-2`} // Fazladan çift tırnak kaldırıldı
+              className={`btn btn-${color} me-2`}
             >
               Profile
             </Link>
