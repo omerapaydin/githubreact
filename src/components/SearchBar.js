@@ -1,9 +1,11 @@
-import React, { useState } from "react"; // useState import edildi
+import React, { useState, useContext } from "react"; // useContext eklendi
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "../contexts/ThemeContext"; // ThemeContext import edildi
 
 function Search() {
-  const [keyword, setKeyword] = useState(""); // 'keword' yerine 'keyword' düzeltildi
+  const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
+  const { btnColor } = useContext(ThemeContext); // useContext kullanımı düzeltildi
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +22,7 @@ function Search() {
             className="form-control"
             placeholder="Anahtar Kelime"
           />
-          <button className="btn btn-warning" type="submit">
+          <button className={`btn btn-${btnColor} me-2`} type="submit">
             Ara
           </button>
         </div>
